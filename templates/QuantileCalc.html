@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Deployment Done</title>
+    <title>Quantiles Calculator</title>
 </head>
 <body>
-    <h1>Deployment AhuSharmuta - Done </h1>
-    <h2>Lets finish this app</h2>
+    <h1>Quantiles Calculator</h1>
+
+    <form method="get" action="{% url 'Quantiles' %}">
+        <label for="param1">Parameter 1:</label>
+        <input type="number" name="param1" required>
+
+        <label for="param2">Parameter 2:</label>
+        <input type="number" name="param2" required>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result %}
+        <p>Result: {{ result }}</p>
+    {% endif %}
 </body>
 </html>
