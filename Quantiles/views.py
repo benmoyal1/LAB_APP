@@ -39,7 +39,7 @@ class QuantilesCalcView(View):
             return "This baby's Abdominal circumference is lower than 95% of the babies"
         elif ab_cir < quantiles['Q10'].iloc[0]:
             return "This baby's Abdominal circumference is lower than 90% of the babies"
-        elif ab_cir >= quantiles['Q95'].iloc[0]:
+        elif quantiles['Q95'].iloc[0] <= ab_cir < quantiles['Q97.5'].iloc[0]:
             return "This baby's Abdominal circumference is greater than  95% of the babies"
         elif ab_cir >= quantiles['Q97.5'].iloc[0]:
             return "This baby's Abdominal circumference is greater than  97.5% of the babies"
