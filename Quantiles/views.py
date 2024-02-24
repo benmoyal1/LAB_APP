@@ -1,7 +1,7 @@
 from django.views import View
 from django.shortcuts import render
 import os
-
+import pandas as pd
 
 class QuantilesCalcView(View):
     template_name = 'QuantileCalc.html'
