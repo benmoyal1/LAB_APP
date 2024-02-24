@@ -2,16 +2,54 @@
 <html>
 <head>
     <title>Quantiles Calculator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            margin-bottom: 15px;
+        }
+
+        button {
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
     <h1>Quantiles Calculator</h1>
 
     <form method="get" action="{% url 'Quantiles' %}">
-        <label for="param1">Parameter 1:</label>
-        <input type="number" name="param1" required>
+        <label for="ab_cir">Abdominal Circumference:</label>
+        <input type="number" name="ab_cir" required>
 
-        <label for="param2">Parameter 2:</label>
-        <input type="number" name="param2" required>
+        <label for="pregnant_age">Pregnant Age:</label>
+        <input type="number" name="pregnant_age" required>
+
+        <label for="options">Options:</label>
+        <select name="options" required>
+            <option value="by_day">By day</option>
+            <option value="by_week">By week</option>
+        </select>
 
         <button type="submit">Calculate</button>
     </form>
