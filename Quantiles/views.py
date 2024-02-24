@@ -31,8 +31,6 @@ class QuantilesCalcView(View):
         df['day'] = df['pregweek'] * 7
         df.drop('median', inplace=True, axis=1)
         quantiles = df[df['day'] == day_]
-        print(df.head())
-        print(ab_cir, day)
         if ab_cir < quantiles['Q3'].iloc[0]:
             return "This baby's Abdominal circumference is lower than 97% of the babies"
         elif ab_cir < quantiles['Q5'].iloc[0]:
