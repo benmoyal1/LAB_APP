@@ -91,6 +91,13 @@
             <p>Ab Circumference in 0.1 * centimeter units</p>
             <p>105 <span style="color: #ff5050;">&lt;</span> Gestational by day <span style="color: #ff5050;">&lt;</span> 280</p>
             <p>15 <span style="color: #ff5050;">&lt;</span> Gestational by week <span style="color: #ff5050;">&lt;</span> 40</p>
+        {% if Mother_age_suck_warning %}
+            <p class="Warning" style="color: red;">Warning: Mother age >= 40 </p>
+        {% endif %}
+
+        {% if too_much_babies_warning %}
+            <p class="Warning" style="color: red;">Warning: Births number >= 7 </p>
+        {% endif %}
         </div>
 
         <div class="right">
@@ -100,10 +107,16 @@
 
             <form method="get" action="{% url 'Quantiles' %}">
                 <label for="ab_cir">Abdominal Circumference:</label>
-                <input type="number" name="ab_cir" required>
+                <input type="number" name="ab_cir" required step="any" min="0">
 
                 <label for="pregnant_age">Gestational Age:</label>
-                <input type="number" name="pregnant_age" required>
+                <input type="number" name="pregnant_age" required step="any" min="0">
+
+                <label for="mother_age">Mother's Age:</label>
+                <input type="number" name="mother_age" required step="any" min="0">
+
+                <label for="num_births">Number of Births:</label>
+                <input type="number" name="num_births" required step="1" min="0">
 
                 <label for="options">Format:</label>
                 <select name="options" required>
