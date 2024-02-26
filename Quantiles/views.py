@@ -33,7 +33,7 @@ class QuantilesCalcView(View):
         sd_ = round(self.sd_poly(pregnant_age), 2)  # 17.
         result = None
         if ab_cir != 0:
-            result = round(norm.cdf(ab_cir, loc=mean_, scale=sd_), 2)
+            result = round(norm.cdf(ab_cir, loc=mean_, scale=sd_), 2) * 100
         mother_age_warning = True if mother_age >= 40 else False
         too_much_babies = True if births_num >= 7 else False
         context = {'result': result,
