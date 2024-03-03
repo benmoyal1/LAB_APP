@@ -35,7 +35,7 @@ class QuantilesCalcView(View):
         if ab_cir != 0:
             result = round(norm.cdf(ab_cir, loc=mean_, scale=sd_), 2) * 100
         mother_age_warning = True if mother_age >= 40 else False
-        too_much_babies = True if births_num >= 7 else False
+        too_much_babies = True if births_num >= 5 else False
         context = {'result': result,
                    'Mother_age_suck_warning': mother_age_warning,
                    'too_much_babies_warning': too_much_babies}
